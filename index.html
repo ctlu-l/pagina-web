@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VetNEX // Clínica Veterinaria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Scanline overlay -->
+  <div class="scanlines"></div>
+  <!-- Grid bg -->
+  <div class="grid-bg"></div>
+  <!-- Noise overlay -->
+  <div class="noise"></div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-bracket">[</span>
+        <span class="logo-text">VET<span class="logo-accent">NEX</span></span>
+        <span class="logo-bracket">]</span>
+        <div class="logo-sub">// SISTEMA VETERINARIO v2.7</div>
+      </div>
+
+      <nav class="nav-actions">
+        <button class="btn btn-tutor" onclick="openModal('tutor')" data-glitch="REGISTRAR TUTOR">
+          <span class="btn-icon">◈</span>
+          <span class="btn-label">REGISTRAR TUTOR</span>
+          <span class="btn-corner btn-corner--tl"></span>
+          <span class="btn-corner btn-corner--br"></span>
+        </button>
+        <button class="btn btn-empleado" onclick="openModal('empleado')" data-glitch="REGISTRAR EMPLEADO">
+          <span class="btn-icon">◉</span>
+          <span class="btn-label">REGISTRAR EMPLEADO</span>
+          <span class="btn-corner btn-corner--tl"></span>
+          <span class="btn-corner btn-corner--br"></span>
+        </button>
+      </nav>
+    </div>
+    <div class="header-line"></div>
+  </header>
+
+  <!-- HERO -->
+  <main class="hero">
+
+    <div class="hero-left">
+      <div class="status-bar">
+        <span class="status-dot"></span>
+        <span class="status-text" id="statusText">SISTEMA EN LÍNEA</span>
+        <span class="status-time" id="statusTime">--:--:--</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="title-line title-line--1">CUIDADO</span>
+        <span class="title-line title-line--2">VETERINARIO</span>
+        <span class="title-line title-line--3">DEL <span class="glitch-word" data-text="FUTURO">FUTURO</span></span>
+      </h1>
+
+      <p class="hero-desc">
+        Bienvenido al sistema integrado de gestión veterinaria.<br/>
+        Conectando tutores, mascotas y especialistas en una red unificada.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-value" data-target="1247">0</div>
+          <div class="stat-label">MASCOTAS REGISTRADAS</div>
+        </div>
+        <div class="stat-divider">|</div>
+        <div class="stat-item">
+          <div class="stat-value" data-target="38">0</div>
+          <div class="stat-label">VETERINARIOS ACTIVOS</div>
+        </div>
+        <div class="stat-divider">|</div>
+        <div class="stat-item">
+          <div class="stat-value" data-target="9831">0</div>
+          <div class="stat-label">CITAS ATENDIDAS</div>
+        </div>
+      </div>
+
+      <div class="cta-group">
+        <button class="cta-primary" onclick="openModal('tutor')">
+          <span>INICIAR REGISTRO</span>
+          <span class="cta-arrow">→</span>
+        </button>
+        <button class="cta-secondary" onclick="scrollToServices()">
+          <span>VER SERVICIOS</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="holo-container">
+        <div class="holo-ring holo-ring--1"></div>
+        <div class="holo-ring holo-ring--2"></div>
+        <div class="holo-ring holo-ring--3"></div>
+        <div class="holo-core">
+          <div class="holo-paw">🐾</div>
+          <div class="holo-scan"></div>
+        </div>
+        <div class="holo-data">
+          <div class="data-line" style="--d:0">ID: MX-7749-A</div>
+          <div class="data-line" style="--d:1">ESPECIE: FELINO</div>
+          <div class="data-line" style="--d:2">ESTADO: SALUDABLE</div>
+          <div class="data-line" style="--d:3">PRÓX. CITA: 2026-05-20</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SERVICES SECTION -->
+  <section class="services" id="services">
+    <div class="section-header">
+      <div class="section-tag">// MÓDULOS DEL SISTEMA</div>
+      <h2 class="section-title">SERVICIOS DISPONIBLES</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" style="--accent: var(--cyan)">
+        <div class="card-icon">💉</div>
+        <h3>VACUNACIÓN</h3>
+        <p>Control y seguimiento de esquemas de vacunación con recordatorios automáticos de próximas dosis.</p>
+        <div class="card-tag">REGISTRO DIGITAL</div>
+      </div>
+      <div class="service-card" style="--accent: var(--magenta)">
+        <div class="card-icon">🔬</div>
+        <h3>CONSULTA VETERINARIA</h3>
+        <p>Citas con especialistas certificados. Historial médico unificado por mascota.</p>
+        <div class="card-tag">AGENDA ONLINE</div>
+      </div>
+      <div class="service-card" style="--accent: var(--yellow)">
+        <div class="card-icon">🛡️</div>
+        <h3>DESPARASITACIÓN</h3>
+        <p>Protocolos completos de desparasitación interna y externa con control de fechas.</p>
+        <div class="card-tag">CONTROL TOTAL</div>
+      </div>
+      <div class="service-card" style="--accent: var(--cyan)">
+        <div class="card-icon">📋</div>
+        <h3>CARNET DIGITAL</h3>
+        <p>Carnet de salud digital para cada mascota. Accesible desde cualquier dispositivo.</p>
+        <div class="card-tag">SIEMPRE DISPONIBLE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TERMINAL SECTION -->
+  <section class="terminal-section">
+    <div class="terminal">
+      <div class="terminal-header">
+        <span class="t-dot t-dot--red"></span>
+        <span class="t-dot t-dot--yellow"></span>
+        <span class="t-dot t-dot--green"></span>
+        <span class="t-title">VETNEX_SYSTEM.exe</span>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">init vetnex --mode=production</span></div>
+        <div class="t-line t-out">> Sistema VetNEX iniciado correctamente.</div>
+        <div class="t-line t-out">> Base de datos PostgreSQL conectada.</div>
+        <div class="t-line t-out">> Módulos cargados: empleados, tutores, mascotas, citas.</div>
+        <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">status --all</span></div>
+        <div class="t-line t-success">> [OK] Veterinarios disponibles: 5</div>
+        <div class="t-line t-success">> [OK] Recepcionistas activos: 3</div>
+        <div class="t-line t-success">> [OK] Agenda del día: 12 citas programadas</div>
+        <div class="t-line"><span class="t-prompt">$</span> <span class="t-cursor">_</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">VET<span class="logo-accent">NEX</span> <span class="footer-ver">v2.7.1</span></div>
+      <div class="footer-text">// SISTEMA DE GESTIÓN VETERINARIA — TODOS LOS DERECHOS RESERVADOS</div>
+      <div class="footer-coords">LAT: 19.4326 | LNG: -99.1332 | CDMX</div>
+    </div>
+  </footer>
+
+  <!-- MODAL TUTOR -->
+  <div class="modal-overlay" id="modal-tutor" onclick="closeModalOutside(event, 'tutor')">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-tag">// NUEVO REGISTRO</div>
+        <h2 class="modal-title">REGISTRO DE <span class="logo-accent">TUTOR</span></h2>
+        <button class="modal-close" onclick="closeModal('tutor')">✕</button>
+      </div>
+      <form class="modal-form" onsubmit="handleSubmit(event, 'tutor')">
+        <div class="form-group">
+          <label>NOMBRE COMPLETO</label>
+          <input type="text" placeholder="Ingrese nombre..." required />
+        </div>
+        <div class="form-group">
+          <label>CORREO ELECTRÓNICO</label>
+          <input type="email" placeholder="correo@ejemplo.com" required />
+        </div>
+        <div class="form-group">
+          <label>TELÉFONO</label>
+          <input type="tel" placeholder="+52 55 0000 0000" required />
+        </div>
+        <div class="form-group">
+          <label>DIRECCIÓN</label>
+          <input type="text" placeholder="Calle, Número, Colonia..." required />
+        </div>
+        <div class="form-group">
+          <label>FECHA DE REGISTRO</label>
+          <input type="date" required />
+        </div>
+        <button type="submit" class="form-submit">
+          <span>REGISTRAR TUTOR</span>
+          <span class="btn-corner btn-corner--tl"></span>
+          <span class="btn-corner btn-corner--br"></span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL EMPLEADO -->
+  <div class="modal-overlay" id="modal-empleado" onclick="closeModalOutside(event, 'empleado')">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-tag">// NUEVO REGISTRO</div>
+        <h2 class="modal-title">REGISTRO DE <span class="logo-accent">EMPLEADO</span></h2>
+        <button class="modal-close" onclick="closeModal('empleado')">✕</button>
+      </div>
+      <div class="tipo-selector">
+        <button class="tipo-btn active" onclick="selectTipo('veterinario', this)">VETERINARIO</button>
+        <button class="tipo-btn" onclick="selectTipo('recepcionista', this)">RECEPCIONISTA</button>
+      </div>
+      <form class="modal-form" onsubmit="handleSubmit(event, 'empleado')">
+        <div class="form-group">
+          <label>NOMBRE COMPLETO</label>
+          <input type="text" placeholder="Ingrese nombre..." required />
+        </div>
+        <div class="form-group">
+          <label>TELÉFONO</label>
+          <input type="tel" placeholder="+52 55 0000 0000" required />
+        </div>
+        <div class="form-group">
+          <label>RFC</label>
+          <input type="text" placeholder="XXXX000000XXX" maxlength="13" required />
+        </div>
+        <!-- Campos veterinario -->
+        <div class="form-group vet-field">
+          <label>CÉDULA PROFESIONAL</label>
+          <input type="text" placeholder="Número de cédula..." />
+        </div>
+        <div class="form-group vet-field">
+          <label>ESPECIALIDAD</label>
+          <select>
+            <option value="">— Seleccionar —</option>
+            <option>Medicina General</option>
+            <option>Cirugía</option>
+            <option>Dermatología</option>
+            <option>Cardiología</option>
+            <option>Oncología</option>
+          </select>
+        </div>
+        <!-- Campo recepcionista -->
+        <div class="form-group rec-field" style="display:none">
+          <label>ID DE CAJA ASIGNADA</label>
+          <input type="number" placeholder="Número de caja..." />
+        </div>
+        <button type="submit" class="form-submit form-submit--emp">
+          <span>REGISTRAR EMPLEADO</span>
+          <span class="btn-corner btn-corner--tl"></span>
+          <span class="btn-corner btn-corner--br"></span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SUCCESS TOAST -->
+  <div class="toast" id="toast">
+    <span class="toast-icon">✓</span>
+    <span class="toast-msg" id="toastMsg">REGISTRO COMPLETADO</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
